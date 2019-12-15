@@ -1,4 +1,4 @@
-package org.msrg.research;
+package org.msrg.research.parser;
 
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Parses the chaincode and identifies the safe or unsafe methods in it.
-
 public class ChaincodeParser {
     private List<String> safeMethods;
     private List<String> unsafeMethods;
@@ -46,9 +45,10 @@ public class ChaincodeParser {
             }
         };
         visitor.visit(fileContext);
-
-        System.out.println("Safe methods are " +safeMethods.toString());
-        System.out.println("Unsafe methods are " + unsafeMethods.toString());
+        this.safeMethods = safeMethods;
+        this.unsafeMethods = unsafeMethods;
+        System.out.println("In Chaincode: Safe methods are " +safeMethods.toString());
+        System.out.println("In chaincode: Unsafe methods are " + unsafeMethods.toString());
 
     }
 

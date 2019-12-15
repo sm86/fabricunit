@@ -17,16 +17,13 @@ import java.util.List;
 public class GoParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements GoParserVisitor<T> {
 
 	@Override public T visitShortVarDecl(GoParser.ShortVarDeclContext ctx) {
-	//	System.out.println(ctx.expressionList().getText());
 		return visitChildren(ctx);
 	}
 
 	@Override public T visitFunctionDecl(GoParser.FunctionDeclContext ctx) {
-		System.out.println("funcDeck  "+ctx.getText());
 		return visitChildren(ctx); }
 
 	@Override public T visitFunctionLit(GoParser.FunctionLitContext ctx) {
-		System.out.println("FuncLit  " + ctx.start.toString());
 		return visitChildren(ctx);
 	}
 	@Override public T visitMethodDecl(GoParser.MethodDeclContext ctx) {
